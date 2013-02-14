@@ -45,7 +45,7 @@ CacheMarker.prototype.onAdd = function() {
     google.maps.event.trigger(me, "click", me.wp_);
   });
   //map.getPane(G_MAP_MARKER_PANE).appendChild(div);
-  var pane = this.getPanes().overlayImage;
+  var pane = this.getPanes().overlayMouseTarget;
   pane.appendChild(div);
   
   this.div_ = div;
