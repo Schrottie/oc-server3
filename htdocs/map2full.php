@@ -54,7 +54,7 @@
 		$tpl->popupmargin = false;
 	}
 
-	$tpl->name = 'map2';
+	$tpl->name = 'map2full';
 	$tpl->menuitem = MNU_MAP;
 	$tpl->nowpsearch = true;
 

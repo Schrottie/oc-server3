@@ -264,7 +264,7 @@ function mapLoad()
 	google.maps.event.addListener(moMap, "dragend", function(){map_moveend()});
 	google.maps.event.addListener(moMap, "zoom_changed", function(){map_moveend()});
 	google.maps.event.addListener(moMap, "maptypeid_changed", function(){map_maptypechanged()});
-	
+
 	/* hack to suppress google's info windows, when clicking on POIs */
 	/* inspired by http://stackoverflow.com/questions/7950030/can-i-remove-just-the-popup-bubbles-of-pois-in-google-maps-api-v3 */
 	/* patch "InfoWindow.open"-method such that a window is only opened if "force" is true */
@@ -365,7 +365,7 @@ function center_home()
 
 function fullscreen_click()
 {
-	window.open(msPermalink.replace(/map2\.php/, 'map2full.php') + '&mode=fullscreen','_self');
+	window.open(msPermalink.replace(/map2full\.php/, 'map2.php').replace(/&mode=fullscreen/, '') ,'_self');
 }
 
 function showPermlinkBox_click()
@@ -712,11 +712,7 @@ function parseXML_GetHTML(xmlobject)
 		sHtml += "<tr><td>&nbsp;</td><td>&nbsp;</td></tr>";
 	}
 
-	sHtml += "<tr><td>";
-	if (sName.length <= 60) sHtml += "<span style='white-space:nowrap'>";
-	sHtml += "<img src='resource2/ocstyle/images/cacheicon/16x16-" + nTypeId + ".gif' alt='" + xmlentities(sTypeText) + "' title='" + xmlentities(sTypeText) + "' /> <a href='viewcache.php?wp=" + encodeURI(sWPOC) + "' target='_blank'><font size='2'>" + xmlentities(sName) + "</font></a>";
-	if (sName.length <= 60) sHtml += "</span>";
-	sHtml += "</td><td align='right' width='60px'><font size='2'>&nbsp;<b>" + xmlentities(sWPOC) + "</b></font></td></tr>";
+	sHtml += "<tr><td><img src='resource2/ocstyle/images/cacheicon/16x16-" + nTypeId + ".gif' alt='" + xmlentities(sTypeText) + "' title='" + xmlentities(sTypeText) + "' /> <a href='viewcache.php?wp=" + encodeURI(sWPOC) + "' target='_blank'><font size='2'>" + xmlentities(sName) + "</font></a></td><td align='right' width='60px'><font size='2'><b>" + xmlentities(sWPOC) + "</b></font></td></tr>";
 	sHtml += "<tr><td colspan='2'>{/literal}{t escape=js}by{/t}{literal} <a href='viewprofile.php?userid=" + encodeURI(nUserId) + "' target='_blank'>" + xmlentities(sUsername) + "</a></td></tr>";
 	sHtml += "<tr><td colspan='2'>" + xmlentities(sTypeText) + " (" + xmlentities(sSizeText) + ")&nbsp;&nbsp;&nbsp;{t escape=js}D/T:{/t} " + parseFloat(nDifficulty).toFixed(1) + "/" + parseFloat(nTerrain).toFixed(1) + "</td></tr>";
 	sHtml += "<tr><td colspan='2'>{/literal}{t escape=js}Listed since:{/t}{literal} " + xmlentities(sListedSince) + "</td></tr>";
@@ -1095,6 +1091,7 @@ function data_mapreceive(data, responseCode)
 function download_enabled(enabled)
 {
 	mbDownloadEnabled = enabled;
+	/*
 	if (enabled)
 	{
 		document.getElementById('download_gpx_img').src = 'resource2/ocstyle/images/map/35x35-gpx-download.png';
@@ -1103,6 +1100,7 @@ function download_enabled(enabled)
 	{
 		document.getElementById('download_gpx_img').src = 'resource2/ocstyle/images/map/35x35-no-gpx-download.png';
 	}
+	* */
 }
 
 function getTimeDiff(dTime1, dTime2)
@@ -1338,13 +1336,35 @@ function rqc_visible()
 
 
 
-{if $opt.template.popup==false}
-	<div class="content2-pagetitle">
-		<img src="resource2/{$opt.template.style}/images/misc/32x32-home.png" style="align: left; margin-right: 10px;" width="32" height="32" alt="" />
-		{t}Map{/t}
-	</div>
 
-	<div class="mapform">
+<div id="map" style="width:100%;height:100%;"></div>
+
+{literal}
+<script language="javascript"> 
+function toggle_sidebar() {
+	var ele = document.getElementById("sidebar");
+	var img = document.getElementById("sidbar-toggle-img");
+	{/literal}
+	var hideimg = "resource2/{$opt.template.style}/images/map/32x32-right.png";
+	var showimg = "resource2/{$opt.template.style}/images/map/32x32-left.png";
+	{literal}
+	if(ele.style.display == "block") {
+		ele.style.display = "none";
+		img.src=showimg;
+	}
+	else {
+		ele.style.display = "block";
+		img.src=hideimg;
+	}
+} 
+</script>
+{/literal}
+
+<div style="position:absolute; top: 48px; right:0px; margin: 0px; padding: 4px; border:1px solid #000; background:#fff; opacity: .9; z-index:2;">
+	<a href="javascript:toggle_sidebar();" id='sidebar-toggle' style="float: left; width: 32px; height: 32px"><img id="sidbar-toggle-img" src="resource2/{$opt.template.style}/images/map/32x32-right.png"></a>
+	<div id="sidebar" style="float: right; left: 32px; display: block">
+	
+    <div class="mapform">
 		<form onsubmit="javascript:mapsubmit_click(); return false;" id="cachemap">
 			<table class="mapsearch">
 				<tr>
@@ -1356,10 +1376,7 @@ function rqc_visible()
 					</td>
 					<td>
 						<a href="#" onclick="javascript:showPermlinkBox_click()"><img src="resource2/{$opt.template.style}/images/map/35x35-star.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Show link to this map{/t}" /></a>
-						{if !$bDisableFullscreen}
-							<a href="#" onclick="javascript:fullscreen_click()"><img src="resource2/{$opt.template.style}/images/map/35x35-fullscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" /></a>
-						{/if}
-						<a href="#" onclick="javascript:fullscreen_click()"><img src="resource2/{$opt.template.style}/images/map/35x35-fullscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" /></a>
+						<a href="#" onclick="javascript:fullscreen_click()"><img src="resource2/{$opt.template.style}/images/map/35x35-normalscreen.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Switch to full screen{/t}" /></a>
 						<a href="#" onclick="javascript:download_gpx()"><img id="download_gpx_img" src="resource2/{$opt.template.style}/images/map/35x35-gpx-download.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Download GPX file (max. 500){/t}" /></a>
 						{if $nUserLat != 0 || $nUserLon != 0 }
 						<a href="#" onclick="javascript:center_home()"><img id="center_home_img" src="resource2/{$opt.template.style}/images/misc/32x32-home.png" align="right" style="margin-left:15px; margin-right: 0px;" height="35" width="35" alt="{t}Goto home coordinates{/t}" /></a>
@@ -1382,24 +1399,8 @@ function rqc_visible()
 			<tr id="permalink_addFavorites"><td align="right"><input type="button" value="{t}Add to favorites...{/t}" onclick="javascript:addFavorites_click()" /></td></tr>
 		</table>
 	</div>
-{/if}
-
-{if $opt.template.popup==false}
-	<p>&nbsp;</p>
-{/if}
-
-{if $opt.template.popup==false}
-	<div id="map" style="width:770px;height:600px;"></div>
-	<div style="width:770px;text-align:right;">{t}Caches displayed{/t} <span id="statCachesCount">0</span>, {t}Time to load{/t} <span id="statLoadTime">0</span> {t}Sec.{/t}</div>
-{else}
-	<div id="map" style="width:100%;height:100%;"></div>
-{/if}
-
-{if $opt.template.popup==false}
-
-<div class="buffer" style="width: 500px; height: 5px;">&nbsp;</div>
+	
 	<p class="content-title-noshade-size2">{t}Only show Geocaches with the following properties:{/t}</p>
-<div class="buffer" style="width: 500px; height: 5px;">&nbsp;</div>
 	<table>
 		<tr>
 			<td class="mapfilter pad10" width="752"><strong>{t}Name:{/t}</strong> <input type="text" id="cachename" name="cachename" value="" onkeypress="filter_changed()" onchange="filter_changed()" class="input200" /></td>
@@ -1586,6 +1587,8 @@ function rqc_visible()
 			</td>
 		</tr>
 	</table>
-<div class="buffer" style="width: 500px; height: 5px;">&nbsp;</div>
+	
+	<div>{t}Caches displayed{/t} <span id="statCachesCount">0</span>, {t}Time to load{/t} <span id="statLoadTime">0</span> {t}Sec.{/t}</div>
+	</div>
+</div>
 
-{/if}
