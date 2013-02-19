@@ -5,6 +5,7 @@
  *  Unicode Reminder メモ
  ***************************************************************************/
  
+	$disable_verifyemail = true;
 	require('./lib2/web.inc.php');
 
 	$email = isset($_REQUEST['email']) ? trim($_REQUEST['email']) : '';

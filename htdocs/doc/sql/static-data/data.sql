@@ -483,7 +483,7 @@ INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('DE', '1', '51.1380014880626', '10.5908203125', '6', '1');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('DK', '1', '56.0536350191344', '10.118408203125', '7', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('EE', '1', '55.4539413294331', '25.1806640625', '6', '0');
-INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('ES', '1', '40.3632883409158', '-2.98828125', '6', '0');
+INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('ES', '1', '40.3632883409158', '-2.98828125', '6', '1');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('FI', '1', '62.5731057844998', '14.9853515625', '5', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('FR', '1', '46.9652594003493', '2.87841796875', '6', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('GB', '1', '53.93021986394', '-5.2294921875', '6', '7');
@@ -492,7 +492,7 @@ INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('HU', '1', '47.0252060015854', '19.324951171875', '7', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('IE', '1', '53.93021986394', '-5.2294921875', '6', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('IS', '1', '65.2750935499542', '-18.83056640625', '6', '0');
-INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('IT', '1', '42.1796881966596', '12.12890625', '6', '0');
+INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('IT', '1', '42.1796881966596', '12.12890625', '6', '1');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('JP', '1', '36.3151251474805', '136.73583984375', '6', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('LI', '1', '47.1346220607737', '9.55467224121094', '11', '0');
 INSERT INTO `countries_options` (`country`, `display`, `gmLat`, `gmLon`, `gmZoom`, `nodeId`) VALUES ('LT', '1', '55.4539413294331', '25.1806640625', '6', '0');
@@ -849,6 +849,7 @@ INSERT INTO `sys_menu` (`id`, `id_string`, `title`, `title_trans_id`, `menustrin
 INSERT INTO `sys_menu` (`id`, `id_string`, `title`, `title_trans_id`, `menustring`, `menustring_trans_id`, `access`, `href`, `visible`, `parent`, `position`, `color`, `sitemap`, `only_if_parent`) VALUES ('85', 'MNU_CACHES_LOG', 'Create a logentry', '1687', 'Create a logentry', '1687', '0', 'log2.php', '0', '10', '10', '', '0', NULL);
 INSERT INTO `sys_menu` (`id`, `id_string`, `title`, `title_trans_id`, `menustring`, `menustring_trans_id`, `access`, `href`, `visible`, `parent`, `position`, `color`, `sitemap`, `only_if_parent`) VALUES ('86', 'MNU_START_CHANGELOG', 'Changelog', '1797', 'Changelog', '1797', '0', 'articles.php?page=changelog', '0', '0', '10', '', '1', NULL);
 INSERT INTO `sys_menu` (`id`, `id_string`, `title`, `title_trans_id`, `menustring`, `menustring_trans_id`, `access`, `href`, `visible`, `parent`, `position`, `color`, `sitemap`, `only_if_parent`) VALUES ('87', 'MNU_START_OPERATOR', 'Operator Association', '1798', 'Operator Association', '1798', '0', 'articles.php?page=verein', '1', '1', '8', '', '1', NULL);
+INSERT INTO `sys_menu` (`id`, `id_string`, `title`, `title_trans_id`, `menustring`, `menustring_trans_id`, `access`, `href`, `visible`, `parent`, `position`, `color`, `sitemap`, `only_if_parent`) VALUES ('88', 'MNU_VERIFY_EMAIL', 'Verify e-mail address', '1824', 'Verify e-mail address', '1824', '0', 'verifyemail.php', '0', '0', '0', '', '0', NULL);
 
 -- Table sys_trans
 SET NAMES 'utf8';
@@ -2201,7 +2202,7 @@ INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1757', 'Round c
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1758', 'The account is already activated. Please try to <a href=\"login.php\">login</a>.<br /> If you cannot login, please read the following page: <a href=\"%1\">problems with login</a>', '2011-05-20 23:48:09');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1759', 'Note:', '2011-05-20 23:48:12');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1760', 'Include a coordinate in the note', '2011-05-20 23:48:12');
-INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1761', 'The note is not visible to other users. The note and the optional coordinate will be included in the GPX-file.', '2011-05-20 23:48:12');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1761', 'The note is not visible to other users. The note and the optional coordinate will be included in GPX-file downloads and sent to the GPS device.', '2011-05-20 23:48:12');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1762', 'Subscribe to feeds from opencaching', '2011-05-20 23:48:12');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1763', 'Your browser has rejected our cookie.<br /> You can find more informations about this topic in the <a href=\"%1\">Opencaching.de-help</a>.', '2011-05-20 23:48:15');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1764', 'Personal cache note', '2011-05-20 23:48:29');
@@ -2228,9 +2229,9 @@ INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1788', 'Parking
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1789', 'Reference point', '2011-07-15 20:08:12');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1790', 'Additional waypoints', '2011-07-15 22:33:19');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1791', 'Add a waypoint', '2011-07-15 22:33:19');
-INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1792', 'Additional waypoints can be entered to make searching easier, for example by pointing to a suitable parkering or start of a path (the waypoint\'s description may contain more information). Waypoints are downloaded in the GPX-file.', '2011-07-15 22:33:19');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1792', 'Additional waypoints can be entered to make searching easier, for example by pointing to a suitable parking location or start of a path (the waypoint\'s description may contain more information). The waypoints are included in GPX-file downloads and will be sent to the GPS device.', '2011-07-15 22:33:19');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1793', 'No waypoints available', '2011-07-15 22:33:33');
-INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1794', 'Additional waypoints can make searching easier, for example by pointing to a suitable parkering or start of a path. The waypoints are downloaded in the GPX-file.', '2011-07-15 22:34:44');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1794', 'Additional waypoints can make searching easier, for example by pointing to a suitable parking location or start of a path. The waypoints are included in GPX-file downloads and will be sent to the GPS device.', '2011-07-15 22:34:44');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1795', 'Maps:', '2012-07-23 22:26:31');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1796', 'Published on', '2012-07-24 19:16:00');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1797', 'Changelog', '2012-08-08 14:16:00');
@@ -2260,6 +2261,13 @@ INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1820', 'You can
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1821', 'OC.de new', '2013-02-15 00:48:04');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1822', 'OC.de new, slimline', '2013-02-15 00:48:04');
 INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1823', 'OC.de new, without statistics', '2013-02-15 00:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1824', 'Verify e-mail address', '2013-02-17 18:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1825', 'One or more e-mails could not be delivered to the address you specified in your user profile', '2013-02-17 18:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1826', 'Please confirm that this email address is correct, or enter a new one.', '2013-02-17 18:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1827', 'Enter new email address', '2013-02-17 18:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1828', 'Confirm this email address', '2013-02-17 18:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1829', 'Mark e-mail address as invalid', '2013-02-17 18:48:04');
+INSERT INTO `sys_trans` (`id`, `text`, `last_modified`) VALUES ('1830', 'data license mail was not delivered', '2013-02-17 18:48:04');
 
 -- Table sys_trans_ref
 SET NAMES 'utf8';
@@ -5431,7 +5439,7 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1428', 'DE', 'sofort veröffentlichen', '2012-07-24 21:30:00');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1429', 'DE', 'veröffentlichen am', '2012-07-24 21:30:00');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1430', 'DE', 'noch nicht veröffentlichen', '2012-07-24 21:30:00');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1431', 'DE', 'Die <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Opencaching.de-Nutzungsbedingungen</a> und <a href=\"articles.php?page=impressum#datalicense\" target=\"_blank\">-Datenlizenz</a> habe ich gelesen und bin damit einverstanden.', '2010-09-10 23:39:25');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1431', 'DE', 'Die <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Opencaching.de-Nutzungsbedingungen</a> und -<a href=\"articles.php?page=impressum#datalicense\" target=\"_blank\">Datenlizenz</a> habe ich gelesen und bin damit einverstanden.', '2010-09-10 23:39:25');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1432', 'DE', 'Info: dein Logeintrag wurde vom Cachebesitzer entfernt', '2010-09-10 23:39:09');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1433', 'DE', 'Ortsauswahl', '2010-09-10 23:39:01');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1434', 'DE', 'Insgesamt {resultscount} Ortschaften gefunden', '2010-09-10 23:38:52');
@@ -5735,7 +5743,7 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1758', 'DE', 'Der Account ist bereits aktiviert. Versuche dich bitte <a href=\"login.php\">einzuloggen</a>.<br /> Sollte der Login nicht möglich sein, lese bitte unter <a href=\"%1\">Loginprobleme</a> nach, wie du das Problem beheben kannst.', '2011-05-23 22:27:53');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1759', 'DE', 'Notiz:', '2011-05-20 23:52:24');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1760', 'DE', 'Koordinaten:', '2011-05-21 00:01:16');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1761', 'DE', 'Diese Notiz ist für andere Benutzer nicht sichtbar. Die Notiz und die Koordinaten sind in der GPX-Datei enthalten.', '2011-05-21 00:00:23');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1761', 'DE', 'Diese Notiz ist für andere Benutzer nicht sichtbar. Die Notiz und die Koordinaten sind in heruntergeladenen GPX-Dateien enthalten und werden an das GPS-Ger\&auml;t gesendet.', '2011-05-21 00:00:23');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1763', 'DE', 'Dein Browser hat das Cookie von Opencaching.de nicht gespeichert.<br /> Mehr Informationen findest du in der <a href=\"%1\">Opencaching.de-Hilfe</a>.', '2011-05-23 22:25:23');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1764', 'DE', 'Persönliche Notiz', '2011-05-21 00:02:06');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1765', 'DE', 'Dieser Geocache liegt vermutlich in einem Naturschutzgebiet. Bitte verhalte dich entsprechend umsichtig! <font size=\"1\">(<a href=\"{$opt.cms.npa}\" target=\"_blank\">Info</a>)</font>', '2011-05-23 22:24:10');
@@ -5761,9 +5769,9 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1789', 'DE', 'Referenzpunkt', '2011-07-15 20:12:55');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1790', 'DE', 'Zusätzliche Wegpunkte', '2011-07-17 20:52:34');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1791', 'DE', 'Wegpunkt hinzufügen', '2011-07-17 20:53:01');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1792', 'DE', 'Zusätzliche Wegpunkte können angelegt werden um die Suche zu erleichtern. Zum Beispiel ein Parkplatz oder Startpunkt für die Suche. Wegpunkte sind in der GPX-Datei enthalten.', '2011-07-17 20:50:33');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1792', 'DE', 'Zusätzliche Wegpunkte können angelegt werden um die Suche zu erleichtern. Zum Beispiel ein Parkplatz oder Startpunkt für die Suche. Die Wegpunkte sind in heruntergeladenen GPX-Dateien enthalten und werden ans GPS-Gerät gesendet.', '2011-07-17 20:50:33');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1793', 'DE', 'Keine zusätzlichen Wegpunkte angelegt', '2011-07-17 20:51:14');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1794', 'DE', 'Zusätzliche Wegpunkte können die Suche vereinfachen, indem sie z.B. auf einem Parkplatz oder den Anfang der Strecke zeigen. Die Wegpunkte werden auch in der GPX-Datei gespeichert.', '2011-07-17 20:52:52');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1794', 'DE', 'Zusätzliche Wegpunkte können die Suche vereinfachen, indem sie z.B. auf einem Parkplatz oder den Anfang der Strecke zeigen. Die Wegpunkte sind in heruntergeladenen GPX-Dateien enthalten und werden ans GPS-Gerät gesendet.', '2011-07-17 20:52:52');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1795', 'DE', 'Karten:', '2012-07-23 22:26:38');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1796', 'DE', 'Veröffentlicht am', '2012-07-23 22:26:38');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1797', 'DE', 'Versionsgeschichte', '2012-07-08 14:50:00');
@@ -5776,7 +5784,7 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1804', 'DE', 'Datenlizenz', '2013-02-09 18:29:08');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1805', 'DE', 'Der Inhalt von www.opencaching.de steht unter einer <br /><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/de/\">Creative Commons Namensnennung-NichtKommerziell-KeineBearbeitung-3.0-Deutschland</a>-Lizenz</a>.', '2013-02-09 18:30:58');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1806', 'DE', 'Bitte waehle nur eine der Lösch-/Sperroptionen aus!', '2013-02-09 17:34:01');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1807', 'DE', 'Mit dem Absenden akzeptiere ich die <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Opencaching.de-Nutzungsbedingungen</a> und <a href=\"articles.php?page=impressum#datalicense\" target=\"_blank\">-Datenlizenz</a>.', '2013-02-09 19:13:15');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1807', 'DE', 'Mit dem Absenden akzeptiere ich die <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Opencaching.de-Nutzungsbedingungen</a> und -<a href=\"articles.php?page=impressum#datalicense\" target=\"_blank\">Datenlizenz</a>.', '2013-02-09 19:13:15');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1808', 'DE', 'Die <a target=\"_blank\" href=\"articles.php?page=dsb\">Datenschutzbelehrung</a>, die <a href=\"articles.php?page=impressum#tos\" target=\"_blank\">Nutzungsbedingungen</a> und die <a href=\"articles.php?page=impressum#datalicense\" target=\"_blank\">Datenlizenz</a> habe ich gelesen und bin damit einverstanden.', '2013-02-09 19:07:09');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1809', 'DE', 'Du musst die Datenschutzbelehrung, die Nutzungsbedingungen  und die Datenlizenz akzeptieren, um dich bei Opencaching.de zu registrieren.', '2013-02-09 19:21:22');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1810', 'DE', 'Mit dem Herunterladen dieser Datei akzeptierst du unsere <a href=\"articles.php?page=impressum#tos\">Nutzungsbedingungen</a> und <a href=\"articles.php?page=impressum#datalicense\" target=\"_blank\">Datenlizenz</a>.', '2013-02-09 19:20:44');
@@ -5793,6 +5801,13 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1821', 'DE', 'OC.de neu', '2013-02-14 00:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1822', 'DE', 'OC.de neu, slimline', '2013-02-14 00:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1823', 'DE', 'OC.de neu, ohne Statistik', '2013-02-14 00:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1824', 'DE', 'E-Mail-Adresse bestätigen', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1825', 'DE', 'Eine oder mehrere Emails konnte nicht an deine hinterlegte Adresse zugestellt werden', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1826', 'DE', 'Bitte bestätige, dass diese Adresse korrekt ist, oder gib eine neue ein!', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1827', 'DE', 'Neue Adresse eingeben', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1828', 'DE', 'Diese Adresse bestätigen', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1829', 'DE', 'E-Mail-Adresse als ungültig markieren', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1830', 'DE', 'Datenlizenzmail wurde nicht zugestellt', '2013-02-17 18:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1', 'EN', 'Reorder IDs \r', '2010-09-02 00:15:30');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('2', 'EN', 'The database could not be reconnected.', '2010-08-28 11:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('3', 'EN', 'Testing – please do not login', '2010-08-28 11:48:07');
@@ -7141,7 +7156,7 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1758', 'EN', 'The account is already activated. Please try to <a href=\"login.php\">login</a>.<br /> If you cannot login, please read the following page: <a href=\"%1\">Login problems</a>', '2011-05-23 22:29:04');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1759', 'EN', 'Note:', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1760', 'EN', 'Include a coordinate in the note', '2012-08-24 17:35:49');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1761', 'EN', 'The note is not visible to other users. The note and the optional coordinate will be included in the GPX file.', '2012-08-24 17:35:49');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1761', 'EN', 'The note is not visible to other users. The note and the optional coordinate will be included in GPX-file downloads and sent to the GPS device.', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1762', 'EN', 'Subscribe to feeds from opencaching', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1763', 'EN', 'Your browser has rejected our cookie.<br /> For more information on this topic, see <a href=\"%1\">Opencaching.de-help</a>.', '2011-05-23 22:25:18');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1764', 'EN', 'Personal cache note', '2012-08-24 17:35:49');
@@ -7168,9 +7183,9 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1789', 'EN', 'Reference point', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1790', 'EN', 'Additional waypoints', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1791', 'EN', 'Add a waypoint', '2012-08-24 17:35:49');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1792', 'EN', 'Additional waypoints can be entered to make searching easier, for example by pointing to a suitable parkering or start of a path (the waypoint\'s description may contain more information). The waypoints are included in GPX file downloads.', '2012-08-24 17:35:49');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1792', 'EN', 'Additional waypoints can be entered to make searching easier, for example by pointing to a suitable parking location or start of a path (the waypoint\'s description may contain more information). The waypoints are included in GPX-file downloads and will be sent to the GPS device.', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1793', 'EN', 'No waypoints available', '2012-08-24 17:35:49');
-INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1794', 'EN', 'Additional waypoints can make searching easier, for example by pointing to a suitable parkering or start of a path. The waypoints are included GPX file downloads.', '2012-08-24 17:35:49');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1794', 'EN', 'Additional waypoints can make searching easier, for example by pointing to a suitable parking location or start of a path. The waypoints are included in GPX-file downloads and will be sent to the GPS device.', '2012-08-24 17:35:49');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1795', 'EN', 'Maps:', '2012-08-24 17:38:05');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1796', 'EN', 'Published on', '2012-08-24 17:38:05');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1797', 'EN', 'Changelog', '2012-08-24 17:38:05');
@@ -7200,6 +7215,13 @@ INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUE
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1821', 'EN', 'OC.de new', '2013-02-14 00:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1822', 'EN', 'OC.de new, slimline', '2013-02-14 00:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1823', 'EN', 'OC.de new, without statistics', '2013-02-14 00:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1824', 'EN', 'Verify email address', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1825', 'EN', 'One or more e-mails could not be delivered to the address you specified in your user profile', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1826', 'EN', 'Please confirm that this email address is correct, or enter a new one.', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1827', 'EN', 'Enter new email address', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1828', 'EN', 'Confirm this email address', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1829', 'EN', 'Mark e-mail address as invalid', '2013-02-17 18:48:07');
+INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1830', 'EN', 'data license mail was not delivered', '2013-02-17 18:48:07');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('1', 'ES', 'Reordenar ID', '2010-12-09 00:17:55');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('2', 'ES', 'La base de datos no se pudo conectar.', '2010-12-09 00:17:55');
 INSERT INTO `sys_trans_text` (`trans_id`, `lang`, `text`, `last_modified`) VALUES ('3', 'ES', 'En pruebas - por favor, no entre.', '2010-12-09 00:17:55');
